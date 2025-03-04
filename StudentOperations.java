@@ -44,4 +44,13 @@ class StudentOperations{
         	}
         	System.out.println("Student with name " + name + " not found.");
     	}
+
+	public void searchByPosition(int position) {
+        if (position < 0 || position >= students.size()) {
+            System.out.println("Invalid position.");
+            return;
+        }
+        System.out.println("Student at Position " + position + ":");
+        students.get(position).display();
+    }
 }
