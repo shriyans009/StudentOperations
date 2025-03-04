@@ -24,13 +24,24 @@ class StudentOperations{
 	}
 
 	public void searchByPRN(int prn) {
-        for (Student student : students) {
-            if (student.getPRN() == prn) {
-                System.out.println("Student Found:");
-                student.display();
-                return;
-            }
-        }
-        System.out.println("Student with PRN " + prn + " not found.");
-    }
+        	for (Student student : students) {
+            		if (student.getPRN() == prn) {
+                		System.out.println("Student Found:");
+                		student.display();
+                		return;
+            		}
+        	}
+        	System.out.println("Student with PRN " + prn + " not found.");
+    	}
+
+	public void searchByName(String name) {
+        	for (Student student : students) {
+            		if (student.getName().equalsIgnoreCase(name)) {
+                		System.out.println("Student Found:");
+                		student.display();
+                		return;
+            		}
+        	}
+        	System.out.println("Student with name " + name + " not found.");
+    	}
 }
