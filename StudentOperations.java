@@ -22,4 +22,15 @@ class StudentOperations{
 			student.display();
 		}
 	}
+
+	public void searchByPRN(int prn) {
+        for (Student student : students) {
+            if (student.getPRN() == prn) {
+                System.out.println("Student Found:");
+                student.display();
+                return;
+            }
+        }
+        System.out.println("Student with PRN " + prn + " not found.");
+    }
 }
