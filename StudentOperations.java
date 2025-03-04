@@ -1,51 +1,57 @@
-//StudentOperations.java
+// StudentOperations.java
 
 import java.util.*;
-class StudentOperations{
-	ArrayList<Student> students;
 
-	public StudentOperations(){
-		this.students = new ArrayList<>();
-	}
+class StudentOperations {
+    private ArrayList<Student> students;
 
-	public void addStudent(Student student){
-		students.add(student);
-		System.out.println("Student Added.");
-	}
+    public StudentOperations() {
+        this.students = new ArrayList<>();
+    }
 
-	public void displayStudents(){
-		if (students.isEmpty()){
-			System.out.println("No students available");
-			return;
-		}
-		for (Student student : students){
-			student.display();
-		}
-	}
+    // Add Student
+    public void addStudent(Student student) {
+        students.add(student);
+        System.out.println("Student Added Successfully!");
+    }
 
-	public void searchByPRN(int prn) {
-        	for (Student student : students) {
-            		if (student.getPRN() == prn) {
-                		System.out.println("Student Found:");
-                		student.display();
-                		return;
-            		}
-        	}
-        	System.out.println("Student with PRN " + prn + " not found.");
-    	}
+    // Display all students
+    public void displayStudents() {
+        if (students.isEmpty()) {
+            System.out.println("No students available.");
+            return;
+        }
+        for (Student student : students) {
+            student.display();
+        }
+    }
 
-	public void searchByName(String name) {
-        	for (Student student : students) {
-            		if (student.getName().equalsIgnoreCase(name)) {
-                		System.out.println("Student Found:");
-                		student.display();
-                		return;
-            		}
-        	}
-        	System.out.println("Student with name " + name + " not found.");
-    	}
+    // Search Student by PRN
+    public void searchByPRN(int prn) {
+        for (Student student : students) {
+            if (student.getPRN() == prn) {
+                System.out.println("Student Found:");
+                student.display();
+                return;
+            }
+        }
+        System.out.println("Student with PRN " + prn + " not found.");
+    }
 
-	public void searchByPosition(int position) {
+    // Search Student by Name
+    public void searchByName(String name) {
+        for (Student student : students) {
+            if (student.getName().equalsIgnoreCase(name)) {
+                System.out.println("Student Found:");
+                student.display();
+                return;
+            }
+        }
+        System.out.println("Student with name " + name + " not found.");
+    }
+
+    // Search Student by Position (Index)
+    public void searchByPosition(int position) {
         if (position < 0 || position >= students.size()) {
             System.out.println("Invalid position.");
             return;
@@ -53,8 +59,9 @@ class StudentOperations{
         System.out.println("Student at Position " + position + ":");
         students.get(position).display();
     }
-	
-	public void updateStudent(int prn) {
+
+    // Update Student Details
+    public void updateStudent(int prn) {
         Scanner scan = new Scanner(System.in);
         for (Student student : students) {
             if (student.getPRN() == prn) {
@@ -80,8 +87,9 @@ class StudentOperations{
         }
         System.out.println("Student with PRN " + prn + " not found.");
     }
-	
-	public void deleteStudent(int prn) {
+
+    // Delete Student
+    public void deleteStudent(int prn) {
         Iterator<Student> iterator = students.iterator();
         while (iterator.hasNext()) {
             Student student = iterator.next();
